@@ -88,7 +88,7 @@ body{min-height:100vh;background:#F7F3E8;color:var(--ink);font-family:var(--sans
   .top{flex-direction:column;align-items:flex-start;gap:12px}
   .nav{width:100%;justify-content:space-between;gap:8px}
 }
-@media (prefers-reduced-motion:reduce){.pg.turned{animation:none;opacity:0;transition:opacity .4s ease}}
+@media (prefers-reduced-motion:reduce){.pg.turned{animation:none}}
 </style>
 </head>
 <body>
@@ -146,9 +146,8 @@ body{min-height:100vh;background:#F7F3E8;color:var(--ink);font-family:var(--sans
     top.style.zIndex=String(200+read.length);
     top.classList.add('turned'); read.push(top);
   }
-  var slow = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  {
-    setTimeout(function tick(){ turn(); setTimeout(tick, slow?6000:3400); }, 1400);
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setTimeout(function tick(){ turn(); setTimeout(tick, 3400); }, 1400);
   }
 
   // what the same page looks like with a different story in it
