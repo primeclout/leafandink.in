@@ -1,0 +1,46 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+---
+
+<header class="masthead">
+  <a class="archive-link" href="{{ "/" | relative_url }}">Current issue</a>
+  <p class="name">Leaf &amp; Ink</p>
+  <p class="issue">Every issue so far</p>
+</header>
+
+<section class="archive">
+  {% for post in site.posts %}
+  <a class="entry" href="{{ post.url | relative_url }}">
+    <span class="no">{{ post.issue | capitalize }}</span>
+    <span class="ttl">{{ post.title }}</span>
+    <span class="when">{{ post.date | date: "%-d %b %Y" }}</span>
+  </a>
+  {% endfor %}
+</section>
+
+<style>
+.archive{
+  max-width:var(--measure);
+  margin:3.5rem auto 0;
+  padding:0 var(--side) 7rem;
+}
+.archive .entry{
+  display:grid;
+  grid-template-columns:6.5rem 1fr auto;
+  gap:1rem;
+  align-items:baseline;
+  padding:1.1rem 0;
+  border-bottom:1px solid var(--ink);
+}
+.archive .entry:first-child{border-top:1px solid var(--ink)}
+.archive .no{font-size:.9375rem;font-style:italic}
+.archive .ttl{font-size:1.25rem}
+.archive .when{font-size:.9375rem;font-style:italic;white-space:nowrap}
+.archive .entry:hover .ttl{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:34rem){
+  .archive .entry{grid-template-columns:1fr auto}
+  .archive .no{grid-column:1 / -1;margin-bottom:.15rem}
+}
+</style>

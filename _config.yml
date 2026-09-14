@@ -1,0 +1,25 @@
+title: Leaf &amp; Ink
+description: One story at a time.
+url: https://leafandink.in
+baseurl: ""
+
+permalink: /:slug/
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: issue
+
+markdown: kramdown
+kramdown:
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
