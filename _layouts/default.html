@@ -49,14 +49,20 @@ a:focus-visible,input:focus-visible,button:focus-visible{
   padding:2.1rem var(--side) .6rem;
   text-align:center;
 }
-.masthead .archive-link{
+.masthead .top{
   position:absolute;top:1.15rem;right:var(--side);
   font-size:.9375rem;font-style:italic;
-  border-bottom:1px solid transparent;
 }
-.masthead .archive-link:hover{border-bottom-color:var(--ink)}
+.masthead .top a{
+  margin-left:1.3rem;
+  border-bottom:1px solid transparent;padding-bottom:1px;
+}
+.masthead .top a:hover{border-bottom-color:var(--ink)}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media (max-width:30rem){
-  .masthead .archive-link{position:static;display:block;text-align:right;margin-bottom:.4rem}
+  .masthead .top{position:static;display:block;text-align:right;margin-bottom:.5rem}
+  .masthead .top a:first-child{margin-left:0}
 }
 .masthead .name{
   font-family:"Literata",Georgia,serif;
@@ -141,6 +147,7 @@ figure img{
 /* ---------- foot ---------- */
 
 .foot{
+  scroll-margin-top:2rem;
   max-width:var(--measure);
   margin:4.4rem auto 0;
   padding:1.5rem var(--side) 7rem;
