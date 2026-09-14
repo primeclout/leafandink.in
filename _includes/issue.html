@@ -3,7 +3,7 @@
     <a href="{{ "/archive/" | relative_url }}">Archive</a>
     <a href="#subscribe">Subscribe</a>
   </nav>
-  <p class="name">Leaf &amp; Ink</p>
+  <p class="name">Leaf <span class="amp">&amp;</span> Ink<span class="amp">:</span></p>
   <p class="issue">{{ include.doc.issue | capitalize }}, {{ include.doc.date | date: "%-d %B" }}</p>
 </header>
 
@@ -24,13 +24,4 @@
   <hr class="end">
 </article>
 
-<section class="foot" id="subscribe">
-  <p>Leaf &amp; Ink publishes one story a week.</p>
-  <p class="italic">Get each new story by email, every Sunday. Nothing else, ever.</p>
-  <p class="also"><a href="{{ "/archive/" | relative_url }}">Read the earlier issues</a></p>
-  <form action="#" method="post">
-    <label for="email" hidden>Email address</label>
-    <input id="email" name="email" type="email" placeholder="your email address" required>
-    <button type="submit">Subscribe</button>
-  </form>
-</section>
+{% include subscribe.html %}

@@ -10,12 +10,14 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --paper:#fff;
   --ink:#000;
+  --wordmark:#23252B;
+  --accent:#344ED8;
   --side:clamp(1.5rem,6vw,4rem);
   --measure:45rem;
   --plate:46rem;
@@ -65,13 +67,15 @@ html{scroll-behavior:smooth}
   .masthead .top a:first-child{margin-left:0}
 }
 .masthead .name{
-  font-family:"Literata",Georgia,serif;
-  font-weight:600;
-  font-size:clamp(1.75rem,4.4vw,2.3rem);
-  letter-spacing:-.005em;
+  font-family:"Figtree","Helvetica Neue",Arial,sans-serif;
+  font-weight:800;
+  font-size:clamp(1.6rem,4vw,2.1rem);
+  letter-spacing:-.02em;
+  color:var(--wordmark);
   line-height:1;
   margin:0;
 }
+.masthead .name .amp{color:var(--accent)}
 .masthead .issue{
   font-size:.9375rem;
   font-style:italic;
