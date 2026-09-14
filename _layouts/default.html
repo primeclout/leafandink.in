@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if page.layout == "issue" %}{% assign d = page %}{% elsif page.url == "/" %}{% assign d = site.posts.first %}{% endif %}
+<title>{% if d %}{{ d.title }} — Leaf &amp; Ink, {{ d.issue }}{% else %}{{ page.title }} — Leaf &amp; Ink{% endif %}</title>
+<meta name="description" content="{% if d %}{{ d.standfirst | strip_html }}{% else %}One story at a time.{% endif %}">
+<meta name="theme-color" content="#FFFFFF">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#fff;
+  --ink:#000;
+  --side:clamp(1.5rem,6vw,4rem);
+  --measure:45rem;
+  --plate:46rem;
+  --plate-img:26rem;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Literata",Georgia,serif;
+  font-weight:400;
+  font-size:1.3125rem;
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;text-decoration:none}
+a:focus-visible,input:focus-visible,button:focus-visible{
+  outline:1px solid var(--ink);outline-offset:3px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead{
+  position:relative;
+  border-bottom:1px solid var(--ink);
+  padding:2.1rem var(--side) .6rem;
+  text-align:center;
+}
+.masthead .archive-link{
+  position:absolute;top:1.15rem;right:var(--side);
+  font-size:.9375rem;font-style:italic;
+  border-bottom:1px solid transparent;
+}
+.masthead .archive-link:hover{border-bottom-color:var(--ink)}
+@media (max-width:30rem){
+  .masthead .archive-link{position:static;display:block;text-align:right;margin-bottom:.4rem}
+}
+.masthead .name{
+  font-family:"Literata",Georgia,serif;
+  font-weight:600;
+  font-size:clamp(1.75rem,4.4vw,2.3rem);
+  letter-spacing:-.005em;
+  line-height:1;
+  margin:0;
+}
+.masthead .issue{
+  font-size:.9375rem;
+  font-style:italic;
+  margin:.6rem 0 .7rem;
+}
+
+/* ---------- head of the piece ---------- */
+
+.head{
+  max-width:var(--plate);
+  margin:0 auto;
+  padding:4.5rem var(--side) 0;
+  text-align:center;
+}
+.head h1{
+  font-family:"Literata",Georgia,serif;
+  font-weight:600;
+  font-size:clamp(2.3rem,6.6vw,3.6rem);
+  line-height:1.08;
+  letter-spacing:-.012em;
+  margin:0;
+}
+.head .standfirst{
+  font-style:italic;
+  font-size:1.3125rem;
+  line-height:1.5;
+  max-width:28ch;
+  margin:1.5rem auto 0;
+}
+.head .kicker{
+  font-size:.9375rem;
+  font-style:italic;
+  margin:2rem 0 0;
+}
+
+/* ---------- plate ---------- */
+
+figure{
+  max-width:var(--plate-img);
+  margin:3.2rem auto 0;
+  padding:0 var(--side);
+}
+figure img{
+  display:block;width:100%;height:auto;
+}
+
+/* ---------- story ---------- */
+
+.story{
+  max-width:var(--measure);
+  margin:3.4rem auto 0;
+  padding:0 var(--side);
+}
+.story p{margin:0 0 1.2em}
+.story > p:first-of-type::first-letter{
+  font-family:"Literata",Georgia,serif;
+  font-size:2.9em;
+  line-height:.85;
+  float:left;
+  padding:.05em .1em 0 0;
+  font-weight:600;
+}
+.story .said{margin-bottom:.8em}
+
+.end{
+  border:0;height:0;margin:3.2rem 0 0;
+}
+.end:after{
+  content:"";display:inline-block;
+  width:.6rem;height:.6rem;background:var(--ink);
+}
+
+/* ---------- foot ---------- */
+
+.foot{
+  max-width:var(--measure);
+  margin:4.4rem auto 0;
+  padding:1.5rem var(--side) 7rem;
+  border-top:1px solid var(--ink);
+}
+.foot p{margin:0 0 .2rem;font-size:1.0625rem}
+.foot p.italic{font-style:italic}
+.foot p.also{margin-top:1.9rem}
+.foot p.also a{border-bottom:1px solid #000;padding-bottom:1px}
+
+form{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
+input,button{
+  font:inherit;font-size:1.0625rem;
+  background:transparent;color:var(--ink);
+  border:0;border-bottom:1px solid var(--ink);
+  padding:.4rem .1rem;border-radius:0;
+}
+input{width:14rem;max-width:100%}
+input::placeholder{color:var(--ink);opacity:.4}
+button{cursor:pointer;font-style:italic}
+
+@media (max-width:36rem){
+  body{font-size:1.1875rem}
+  .head{padding-top:3.2rem}
+}
+</style>
+</head>
+<body>
+
+{{ content }}
+
+</body>
+</html>

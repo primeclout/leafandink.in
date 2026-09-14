@@ -1,0 +1,33 @@
+<header class="masthead">
+  <a class="archive-link" href="{{ "/archive/" | relative_url }}">Archive</a>
+  <p class="name">Leaf &amp; Ink</p>
+  <p class="issue">{{ include.doc.issue | capitalize }}, {{ include.doc.date | date: "%-d %B" }}</p>
+</header>
+
+<div class="head">
+  <h1>{{ include.doc.title }}</h1>
+  <p class="standfirst">{{ include.doc.standfirst }}</p>
+  <p class="kicker">{{ include.doc.kind }}, {{ include.doc.minutes }} minutes</p>
+</div>
+
+{% if include.doc.image %}
+<figure>
+  <img src="{{ include.doc.image | relative_url }}" alt="{{ include.doc.image_alt }}">
+</figure>
+{% endif %}
+
+<article class="story">
+  {{ include.body }}
+  <hr class="end">
+</article>
+
+<section class="foot">
+  <p>Leaf &amp; Ink publishes one story at a time.</p>
+  <p class="italic">A new story every Sunday.</p>
+  <p class="also"><a href="{{ "/archive/" | relative_url }}">Read the earlier issues</a></p>
+  <form action="#" method="post">
+    <label for="email" hidden>Email address</label>
+    <input id="email" name="email" type="email" placeholder="your email" required>
+    <button type="submit">Send it to me</button>
+  </form>
+</section>
